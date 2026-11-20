@@ -1,0 +1,21 @@
+{
+  "id": "./",
+  "name": "برنامه‌ریزی و کنترل فروش توسن تکنو",
+  "short_name": "برنامه فروش",
+  "description": "داشبورد برنامه‌ریزی، پیگیری و کنترل فروش توسن تکنو",
+  "lang": "fa",
+  "dir": "rtl",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
