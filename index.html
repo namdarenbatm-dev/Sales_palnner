@@ -174,7 +174,7 @@ document.getElementById("segmentChart").innerHTML=areas.map(a=>{let n=db.tasks.f
 let sts=["شروع‌نشده","درحال‌انجام","تکمیل‌شده","متوقف"];document.getElementById("taskStatus").innerHTML=sts.map(s=>`<p>${s}: <b>${fa(db.tasks.filter(t=>t.status===s).length)}</b></p>`).join("");
 let late=db.tasks.filter(t=>t.end<date(new Date())&&t.status!=="تکمیل‌شده"),noOwner=db.tasks.filter(t=>!t.owner.trim()),due=db.contracts.filter(c=>c.next&&c.next<=date(new Date())&&c.stage!=="درحال‌اجرا");
 document.getElementById("alerts").innerHTML=`<p class="${late.length?'bad':'good'}">اقدامات با موعد گذشته: <b>${fa(late.length)}</b></p><p>قراردادهای نیازمند پیگیری: <b>${fa(due.length)}</b></p><p>اقدامات بدون مسئول: <b>${fa(noOwner.length)}</b></p>`;
-renderGoals()}
+drawGeoDashboard();renderGoals()}
 
 function companyScore(c){let ms=Math.max(1,...db.companies.map(x=>Number(x.monthlySales)||0)),mc=Math.max(1,...db.companies.map(x=>Number(x.monthlyCapacity)||0));let sales=100*(Number(c.monthlySales)||0)/ms,cap=100*(Number(c.monthlyCapacity)||0)/mc,growth=Math.max(0,Math.min(100,((Number(c.growth)||0)+20)*2.5));return Math.round(sales*.25+cap*.20+growth*.15+(Number(c.geoScore)||0)*.10+(Number(c.financeScore)||0)*.10+(Number(c.networkScore)||0)*.10+(Number(c.commitmentScore)||0)*.10)}
 function companyTier(v){return v>=75?"A":v>=50?"B":"C"}
