@@ -1,4 +1,4 @@
-const CACHE = "tosan-sales-pwa-v8";
+const CACHE = "tosan-sales-pwa-v9";
 const CORE = ["./", "./index.html", "./manifest.webmanifest", "./icon.svg", "./tosan-logo.webp", "./tosan-icon.png"];
 self.addEventListener("install", event => { event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(CORE))); self.skipWaiting(); });
 self.addEventListener("activate", event => { event.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(k => k !== CACHE).map(k => caches.delete(k))))); self.clients.claim(); });
